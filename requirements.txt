@@ -34,3 +34,4 @@ typing_extensions==4.11.0
 virtualenv==20.26.2
 Werkzeug==2.3.8
 WTForms==3.0.1
+gunicorn==22.0.0
