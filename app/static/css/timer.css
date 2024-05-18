@@ -1,0 +1,72 @@
+/* Base container for timer */
+.base-timer {
+  position: relative;
+  height: 100px;
+  width: 100px;
+}
+
+/* Flips the SVG  and makes the animation to move left-to-right */
+.base-timer__svg {
+  transform: scaleX(-1);
+}
+
+/* Ensures SVG circle does not hide the timer label */
+.base-timer__circle {
+  fill: none;
+  stroke: none;
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: grey;
+}
+
+.base-timer__path-remaining {
+  stroke-width: 7px; /* matches with the elapsed path */
+  stroke-linecap: round;
+  transform: rotate(90deg);
+  transform-origin: center;
+  transition: 1s linear all;
+  stroke: currentColor;
+}
+
+.base-timer__path-remaining.green {
+  color: rgb(65, 184, 131);
+}
+
+.base-timer__path-remaining.orange {
+  color: orange;
+}
+
+.base-timer__path-remaining.red {
+  color: red;
+}
+
+.base-timer__label {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+
+  top: 0;
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  justify-content: center;
+
+}
+
+.word-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#timer {
+  display: flex;
+  justify-content: center;
+}
+
+#word-to-draw {
+  margin: 0;
+}

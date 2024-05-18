@@ -1,0 +1,275 @@
+#drawing-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+@media (min-width: 768px) {
+  #drawing-container {
+    margin: 50px auto;
+  }
+}
+
+/* Modal Styles */
+.category-btn {
+  width: 300px;
+  margin: 3px 0;
+  color: white;
+}
+
+.modal-body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button {
+  border: 3px solid;
+  border-radius: 10px;
+}
+
+#all-play-btn {
+  border-color: #8503D5;
+  background-color: #8503D5;
+}
+
+#difficult-btn {
+  border-color: #5BC209;
+  background-color: #5BC209;
+}
+
+#action-btn {
+  border-color: #E98607;
+  background-color: #E98607;
+}
+
+#person-btn {
+  border-color: #0CB1F2;
+  background-color: #0CB1F2;
+}
+
+#object-btn {
+  border-color: #f7c200;
+  background-color: #f7c200;
+}
+
+/* Word to Draw Styles */
+#word-to-draw-section h4,
+#timer h4 {
+  font-size: larger;
+}
+
+#word-to-draw-section p {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  border: 1px solid #0E6D95;
+  border-radius: 10px;
+}
+
+/* Tool Container Styles */
+#tools {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 10px 0;
+  padding: 20px;
+
+  border: none;
+  border-radius: 10px;
+  background-color: #e0e0e0;
+}
+
+
+@media (min-width: 768px) {
+  #tools {
+    min-width: 300px;
+  }
+}
+
+legend {
+  font-size: large;
+}
+
+/* Brush Size and Colour Label Styles */
+/* Hide default radio buttons for brush tools so styling can apply to their labels */
+.hidden-radio,
+.hidden-checkbox {
+  display: none;
+}
+
+/* Base style for brush size and colour labels */
+.brush-size-label,
+.brush-colour-label {
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+}
+
+.brush-size-label {
+  margin: 5px 20px;
+  background-color: black;
+}
+
+.brush-colour-label {
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+}
+
+/* Specific brush size modifiers */
+.brush-size-label.small {
+  width: 6px;
+  height: 6px;
+}
+
+.brush-size-label.medium {
+  width: 10px;
+  height: 10px;
+}
+
+.brush-size-label.large {
+  width: 20px;
+  height: 20px;
+}
+
+/* When the radio button is checked */
+.hidden-radio:checked + .brush-size-label,
+.hidden-radio:checked + .brush-colour-label {
+  box-shadow: 0 0 0 4px #e0e0e0, 0 0 0 6px #7c7c7c;
+}
+
+/* Specific brush colour modifiers */
+.brush-colour-label.black {
+  background-color: black;
+}
+
+.brush-colour-label.red {
+  background-color: red;
+}
+
+.brush-colour-label.orange {
+  background-color: orange;
+}
+
+.brush-colour-label.yellow {
+  background-color: yellow;
+}
+
+.brush-colour-label.green {
+  background-color: green;
+}
+
+.brush-colour-label.blue {
+  background-color: blue;
+}
+
+.brush-colour-label.purple {
+  background-color: purple;
+}
+
+.brush-colour-label.white {
+  background-color: white;
+}
+
+/* Eraser Styles */
+.eraser-label {
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+.eraser-img {
+  display: block;
+  width: 35px;
+  height: auto;
+  margin: 0 10px;
+  background-color: #e0e0e0;
+}
+
+.hidden-checkbox:checked + .eraser-label {
+  border: 3px solid #7c7c7c;
+  border-radius: 5px;
+}
+
+/* Button Styles*/
+#clear-all {
+  width: 90px;
+  margin: 10px;
+  border-color: #f86767;
+  background-color: white;
+}
+
+#clear-all:hover {
+  color: white;
+  border-color: #f86767;
+  background-color: #f86767;
+}
+
+#submit-drawing {
+  width: 130px;
+  color: white;
+  border-color: #0E6D95;
+  background-color: #0E6D95;
+}
+
+#quit-drawing,
+#exit-modal {
+  width: 130px;
+  color: white;
+  border-color: #F22E2E;
+  background-color: #F22E2E;
+}
+
+#submit-drawing:hover {
+  border-color: #0a4964;
+  background-color: #0a4964;
+}
+
+#quit-drawing:hover,
+#exit-modal:hover {
+  border-color: #c72a2a;
+  background-color: #c72a2a;
+}
+
+
+/* TODO: Make the canvas size adaptable depending on screen size? */
+#drawing-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  max-height: 600px;
+  border: 2px solid #868686;
+  border-radius: 10px;
+  touch-action: none;
+}
+
+.canvas-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.drawing-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .drawing-wrapper {
+    flex-direction: row;
+    column-gap: 40px;
+  }
+}

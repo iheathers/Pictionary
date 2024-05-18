@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Guess Drawing
+{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/timer.css') }}"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/guess.css') }}"/>
+{% endblock %}
+
+{% block content %}
+
+  <div class="guess-page-container">
+
+    {#  IMAGE SHOWING DRAWING #}
+    <div class="image-container">
+      <img class="guess-image" src="{{ image.drawing_data }}" alt="Rendered Image" data-drawing-id="{{ image.id }}">
+    </div>
+
+    {#  GUESS SECTION #}
+    <div class="guess-container">
+      <div class="timer-container">
+
+        {% if current_user_guess|length == 0 %}
+          <div id="timer">
+            {% include 'timer.html' %}
+          </div>
+          <button type="button" class="btn btn-danger btn-quit">Quit</button>
+        {% endif %}
+
+
+      </div>
+      <div class="chat-box">
+        <div class="header">
+          TAKE A GUESS
+        </div>
+        <div class="chat-room">
+
+          {% for guess in current_user_guess %}
+            <div class="message message-right">
+              <div class="bubble bubble-dark">
+                {% if not guess.guessed_word == "XXXXXX" %}
+                  {{ guess.guessed_word }}
+                {% endif %}
+              </div>
+            </div>
+            <div class="message message-left">
+              <div class="bubble {{ 'bubble-light' if  guess.is_correct else 'bubble-red' }}">
+                {% if guess.guessed_word == 'XXXXXX' %}
+                  You did not guess
+                {% elif guess.is_correct %}
+                  You guessed correctly
+                {% else %}
+                  Oops. Wrong guess
+                {% endif %}
+              </div>
+            </div>
+
+            {% if not guess.is_correct %}
+              <div class="message message-left correct-word-message">
+                <div class="bubble bubble-light animate-fade-in">
+                  The correct word was: {{ image.word.text }}
+                </div>
+              </div>
+            {% endif %}
+
+          {% endfor %}
+
+
+        </div>
+
+        {% if current_user_guess|length == 0 %}
+          <div class="type-area">
+            <div class="input-wrapper">
+              <input type="text" id="inputText" placeholder="Type your guess here..."/>
+            </div>
+            <button class="button-send">Guess</button>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="{{ url_for('static', filename='js/timer.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='js/guess.js') }}"></script>
+  <script> var galleryUrl = "{{ url_for('main.gallery') }}"; </script>
+
+
+{% endblock %}
