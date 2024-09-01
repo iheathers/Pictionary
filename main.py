@@ -12,3 +12,6 @@ def make_shell_context():
     from app.models import User
 
     return {"db": db, "User": User}
+
+if __name__ == "__main__":
+    app.run()
