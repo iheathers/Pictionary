@@ -14,9 +14,6 @@ venv/
 .env.local
 .flaskenv
 
-# Database files
-*.db
-
 # OS generated files
 .DS_Store
 
