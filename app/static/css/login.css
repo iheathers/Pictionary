@@ -1,5 +1,6 @@
 /* Preamble */
 .preamble {
+  margin-top: 40px;
   position: absolute;
   top: 16%;
   left: 53%;
@@ -143,7 +144,7 @@
   .preamble-1 {
     width: 390px;
     font-size: 17px;
-    margin-top: 150px;
+    margin-top: 60px;
   }
 }
 
@@ -196,6 +197,7 @@
   left: 0;
   height: 100%;
   object-fit: cover;
+  margin-left: -185px;
 }
 
 /* GitHub icon */
